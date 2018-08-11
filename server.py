@@ -1,27 +1,45 @@
 import socket
+import threading
 
-s = socket.socket()
+from request import Request
+from utils import log
+
+from routes import error
+
+from routes.routes_todo import route_dict as todo_routes
+from routes.api_todo import route_dict as todo_api
+from routes.api_weibo import route_dict as weibo_api
+from routes.routes_weibo import route_dict as weibo_routes
+from routes.routes_user import route_dict as user_routes
+from routes.routes_public import route_dict as public_routes
 
 
-# 服务器的 host 为 0.0.0.0, 表示接受任意 ip 地址的连接
-host = '0.0.0.0'
-port = 2000
+def register_routes():
+    r = {}
+    # 注册外部的路由
+    r.update(todo_api())
+    r.update(todo_routes())
+    r.update(weibo_api())
+    r.update(weibo_routes())
+    r.update(user_routes())
+    r.update(public_routes())
+    return r
 
-s.bind((host, port))
 
-s.listen()
+routes_dict = register_routes()
 
-# 用一个无限循环来处理请求
-while True:
-    # 当有客户端过来连接的时候, s.accept 函数就会返回 2 个值
-    # 分别是 连接 和 客户端 ip 地址
-    print('before accept')
-    connection, address = s.accept()
-    print('after accept')
 
-    # recv 可以接收客户端发送过来的数据
-    # 参数是要接收的字节数
-    # 返回值是一个 bytes 类型
+def response_for_path(request):
+    """
+    根据 path 调用相应的处理函数
+    没有处理的 path 会返回 404
+    """
+    response = routes_dict.get(request.path, error)
+    log('request', request, response)
+    return response(request)
+
+
+def request_from_connection(connection):
     request = b''
     buffer_size = 1024
     while True:
@@ -29,15 +47,45 @@ while True:
         request += r
         # 取到的数据长度不够 buffer_size 的时候，说明数据已经取完了。
         if len(r) < buffer_size:
-            break
+            request = request.decode()
+            log('request\n {}'.format(request))
+            return request
 
-    print('ip and request, {}\n{}'.format(address, request.decode()))
+
+def process_request(connection):
+    with connection:
+        r = request_from_connection(connection)
+        # 把原始请求数据传给 Request 对象
+        request = Request(r)
+        # 用 response_for_path 函数来得到 path 对应的响应内容
+        response = response_for_path(request)
+        log("response log:\n <{}>".format(response))
+        # 把响应发送给客户端
+        connection.sendall(response)
 
 
-    http_response = "HTTP/1.1 233 very OK\r\n\r\n<h1>Hello World!</h1>"
-    response = http_response.encode()
+def run(host, port):
+    """
+    启动服务器
+    """
+    log('开始运行于', 'http://{}:{}'.format(host, port))
+    with socket.socket() as s:
+        # 建立host和端口
+        s.bind((host, port))
+        # 监听 接受 读取请求数据 解码成字符串
+        s.listen()
+        # 无限循环来处理请求
+        while True:
+            connection, address = s.accept()
+            log('ip {}'.format(address))
+            t = threading.Thread(target=process_request, args=(connection,))
+            t.start()
 
-    # 用 sendall 发送给客户端
-    connection.sendall(response)
-    # 发送完毕后, 关闭本次连接
-    connection.close()
+
+if __name__ == '__main__':
+    # 生成配置并且运行程序
+    config = dict(
+        host='localhost',
+        port=5000,
+    )
+    run(**config)

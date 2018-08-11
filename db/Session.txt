@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "2091c6ee-155a-4224-8ff5-74107c0e40fe",
+    "user_id": 0,
+    "expired_time": 1533997229.0893953
+  },
+  {
+    "id": 1,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "28e826f7-a4d4-4931-b129-5ad45ef24eed",
+    "user_id": 0,
+    "expired_time": 1534004060.3285644
+  },
+  {
+    "id": 2,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "0dd7865a-9e61-4e05-8bcc-f27176db647c",
+    "user_id": 0,
+    "expired_time": 1534006165.8429923
+  },
+  {
+    "id": 3,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "b70e7809-55d4-40c1-b6c7-fac41d68153d",
+    "user_id": 2,
+    "expired_time": 1534006430.9073954
+  }
+]
