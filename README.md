@@ -3,7 +3,7 @@
 
 前端用pure.css美化样式，使用Ajax技术实现不用刷新更新数据。
 
-![DEMO](D:\GitHub\socket-server\demo.gif)
+![DEMO](https://github.com/yim7/socket-server/blob/master/demo.gif)
 
 ## 功能
 - [x] 用户注册、登录
