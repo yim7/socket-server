@@ -24,5 +24,5 @@
 python server.py
 ```
 
-打开http://localhost:5000/就可以访问了
+打开 http://localhost:5000/ 就可以访问了
 
