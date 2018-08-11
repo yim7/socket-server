@@ -48,12 +48,15 @@ class User(Model):
 
     @classmethod
     def register(cls, form):
-        valid = len(form['username']) > 2 and len(form['password']) > 2
-        if valid:
+        if len(form['username']) < 2 or len(form['password']) < 2:
+            result = '用户名密码长度必须大于2'
+            u = User.guest()
+        elif cls.find_by(username=form['username']):
+            result = '用户名已被注册'
+            u = User.guest()
+        else:
             form['password'] = cls.salted_password(form['password'])
             u = User.new(form)
             result = '注册成功'
-            return u, result
-        else:
-            result = '用户名或者密码长度必须大于2'
-            return User.guest(), result
+
+        return u, result

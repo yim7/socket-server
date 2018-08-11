@@ -3,16 +3,6 @@
     "id": 0,
     "created_time": -1,
     "updated_time": -1,
-    "username": "test",
-    "password": "dabe8fbbed00dbf72144618dfa56b6eff40207b290013639faa13ecb09f90c3b",
-    "role": {
-      "__enum__": "normal"
-    }
-  },
-  {
-    "id": 1,
-    "created_time": -1,
-    "updated_time": -1,
     "username": "yim",
     "password": "dabe8fbbed00dbf72144618dfa56b6eff40207b290013639faa13ecb09f90c3b",
     "role": {
@@ -20,7 +10,7 @@
     }
   },
   {
-    "id": 2,
+    "id": 1,
     "created_time": -1,
     "updated_time": -1,
     "username": "yim7",

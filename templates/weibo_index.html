@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>weibo</title>
+    <link href="https://cdn.bootcss.com/pure/1.0.0/pure-min.css" rel="stylesheet">
+    <link href="/static?file=main.css" rel="stylesheet">
 </head>
 <body>
-    <input id="id-input-weibo">
-    <br>
-    <button id="id-button-add">发表新微博</button>
+<div class="main">
+    <div>
+        <h1>微博</h1>
+    </div>
+    <div class="publish">
+        <div class="input">
+            <textarea id="id-input-weibo" title="微博输入框"></textarea>
+        </div>
+        <div class="button">
+            <button id="id-button-add" class="pure-button button-publish">发表新微博</button>
+        </div>
+
+
+    </div>
+
     <div id="id-weibo-list">
     </div>
     <script src='/static?file=ajax.js'></script>
     <script src='/static?file=weibo.js'></script>
+    <script src='/static?file=comment.js'></script>
+</div>
+
 
 </body>
 </html>

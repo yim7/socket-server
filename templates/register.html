@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <title>注册</title>
     <link href="https://cdn.bootcss.com/pure/1.0.0/pure-min.css" rel="stylesheet">
-    <link href="/static?file=index.css" rel="stylesheet">
+    <link href="/static?file=main.css" rel="stylesheet">
 </head>
 <body>
 <div class="main">
-    <h1>注册</h1>
-    <form class="pure-form pure-form-aligned" action="/user/register" method="post">
-        <div class="pure-control-group">
-            <label for="name">Username</label>
-            <input name="username" type="text" placeholder="请输入用户名" required>
-        </div>
+    <div class="header">
+        <h1>注册</h1>
+    </div>
 
-        <div class="pure-control-group">
-            <label for="password">Password</label>
-            <input name="password" type="password" placeholder="请输入密码" required>
-        </div>
+    <div class="sign-form">
+        <form class="pure-form pure-form-aligned" action="/user/register" method="post">
+            <div class="pure-control-group">
+                <label for="name">Username</label>
+                <input name="username" type="text" placeholder="请输入用户名" required>
+            </div>
 
-        <button class="pure-button button-sign" type="submit">注册</button>
-        <a href="/" class="pure-button button-sign">回到主页</a>
-    </form>
-    <h3>{{ result }}</h3>
+            <div class="pure-control-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" placeholder="请输入密码" required>
+            </div>
+
+            <button class="pure-button button-sign" type="submit">注册</button>
+            <a href="/" class="pure-button button-sign">回到主页</a>
+        </form>
+        <h3>{{ result }}</h3>
+    </div>
 </div>
 
 

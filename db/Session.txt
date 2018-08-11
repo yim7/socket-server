@@ -30,5 +30,61 @@
     "session_id": "b70e7809-55d4-40c1-b6c7-fac41d68153d",
     "user_id": 2,
     "expired_time": 1534006430.9073954
+  },
+  {
+    "id": 4,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "a0036bbc-b361-4cf8-a7c0-63e6fcf0501d",
+    "user_id": 0,
+    "expired_time": 1534011903.3771112
+  },
+  {
+    "id": 5,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "89f8b80b-9778-45bc-8295-4b5ddfa12ea7",
+    "user_id": 0,
+    "expired_time": 1534012473.172122
+  },
+  {
+    "id": 6,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "49569b69-61a5-4397-b387-3b9f2028ddfd",
+    "user_id": 0,
+    "expired_time": 1534016470.6982074
+  },
+  {
+    "id": 7,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "3266ce42-667b-405b-806d-c3ed49a82000",
+    "user_id": 0,
+    "expired_time": 1534020113.6959898
+  },
+  {
+    "id": 8,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "b1469619-264f-494a-bf6c-e8f6e1a6f866",
+    "user_id": 2,
+    "expired_time": 1534020688.8018932
+  },
+  {
+    "id": 9,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "5d01f344-4124-40fe-849f-0f9b28769222",
+    "user_id": 0,
+    "expired_time": 1534021872.0414188
+  },
+  {
+    "id": 10,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "897c97c9-2d23-41d5-b7f5-f9cb3a0db50c",
+    "user_id": 1,
+    "expired_time": 1534021927.7838988
   }
 ]
