@@ -53,6 +53,15 @@ textarea {
     padding: 1em;
     margin: 1em auto;
 }
+
+.weibo-content {
+    margin: 1em auto;
+}
+
 .comment-cell {
-    margin: 1em;
+    margin: 1em auto;
+}
+
+.comment-add-input {
+    width: 30em;
 }

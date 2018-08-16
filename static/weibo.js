@@ -30,8 +30,8 @@ var commentTemplate = function (comment) {
         <div class="comment-cell" data-id="${comment.id}">
             <span class="comment-title">${comment.content}</span>
             <span class="comment-author"> by ${comment.username}</span>
-            <button class="pure-button pure-button-primary comment-delete">删除</button>
-            <button class="pure-button pure-button-primary comment-edit">编辑</button>
+            <button class="comment-delete">删除</button>
+            <button class="comment-edit">编辑</button>
         </div>
         `
     return t
@@ -50,19 +50,20 @@ var weiboTemplate = function (weibo) {
 
     var t = `
         <div class="weibo-cell" data-id="${weibo.id}">
-            <span class="weibo-title">${weibo.content}</span>
-            <span class="weibo-author"> by ${weibo.username}</span>
-            <span>创建时间：${weibo.created_time}</span>
-            <span>更新时间：${weibo.updated_time}</span>
-            <button class="pure-button pure-button-primary weibo-delete">删除</button>
-            <button class="pure-button pure-button-primary weibo-edit">编辑</button>
-            <br>
+            <div class="weibo-content">
+                <span class="weibo-title">${weibo.content}</span>
+                <span class="weibo-author"> by ${weibo.username}</span>
+                <span>创建时间：${weibo.created_time}</span>
+                <span>更新时间：${weibo.updated_time}</span>
+                <button class="pure-button pure-button-primary weibo-delete">删除</button>
+                <button class="pure-button pure-button-primary weibo-edit">编辑</button>
+            </div>
             <div>
                 <input class="comment-add-input">
             </div>
             <button class="pure-button pure-button-primary comment-add">添加评论</button>
-            <p>评论:</p>
             <div class="comment-list">
+                <p>评论:</p>
                 ${commentHtml}
             </div>
             <br>
@@ -145,12 +146,12 @@ var bindEventWeiboDelete = function () {
         log(self.classList)
         if (self.classList.contains('weibo-delete')) {
             log('点到了删除按钮')
-            weiboId = self.parentElement.dataset['id']
+            weiboId = self.closest('.weibo-cell').dataset['id']
             apiWeiboDelete(weiboId, function (r) {
                 log('apiWeiboDelete', r.message)
                 // 删除 self 的父节点
                 if (r.message != '没有更改权限') {
-                    self.parentElement.remove()
+                    self.closest('.weibo-cell').remove()
                 }
                 alert(r.message)
             })
