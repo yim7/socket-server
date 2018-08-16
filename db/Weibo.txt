@@ -1,12 +1,5 @@
 [
   {
-    "id": 1,
-    "created_time": 1534015674,
-    "updated_time": 1534016674,
-    "content": "灌灌灌灌",
-    "user_id": 0
-  },
-  {
     "id": 2,
     "created_time": 1534018337,
     "updated_time": 1534018377,
