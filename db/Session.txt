@@ -86,5 +86,13 @@
     "session_id": "897c97c9-2d23-41d5-b7f5-f9cb3a0db50c",
     "user_id": 1,
     "expired_time": 1534021927.7838988
+  },
+  {
+    "id": 11,
+    "created_time": -1,
+    "updated_time": -1,
+    "session_id": "ace63740-1108-4d2f-86ed-b5805ebb5888",
+    "user_id": 0,
+    "expired_time": 1534436458.0473764
   }
 ]

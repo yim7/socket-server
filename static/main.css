@@ -47,3 +47,12 @@ textarea {
 .comment-cell {
     margin: 1em 0;
 }
+
+.weibo-cell {
+    border: 1px solid black;
+    padding: 1em;
+    margin: 1em auto;
+}
+.comment-cell {
+    margin: 1em;
+}
